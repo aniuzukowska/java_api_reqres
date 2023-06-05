@@ -45,8 +45,8 @@
 После завершения тестов также формируются отчеты <a href="https://jenkins.autotests.cloud/job/018-annazukowska-java-api/2/allure/" target="_blank">Allure report</a>, которые можно посмотреть со страницы задачи в Jenkins.
 
 <img width="1432" alt="image" src="https://github.com/aniuzukowska/java_api_reqres/assets/109241600/d926ba2d-f748-4f89-b63f-40bed739b99d">
+<img width="1435" alt="image" src="https://github.com/aniuzukowska/java_api_reqres/assets/109241600/6c6d35fb-67c6-4020-8af6-a0e8b227bbb1">
 
-<img width="1433" alt="image" src="https://user-images.githubusercontent.com/109241600/205479511-776f70cc-4b7c-400c-a1a4-37c1243c9be8.png">
 
 
 

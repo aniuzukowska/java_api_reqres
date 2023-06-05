@@ -64,5 +64,7 @@
 ## Интеграция с Jira
 Настроена интеграция Allure TestOPS с Jira. К задаче в Jira привязаны тест-кейсы и прогон с результатами тестирования из Allure TestOPS.
 
-<img width="973" alt="image" src="https://user-images.githubusercontent.com/109241600/205480051-66eb900a-aed3-4ba6-b2d5-9dcc908e1884.png">
-<img width="976" alt="image" src="https://user-images.githubusercontent.com/109241600/205480067-0d952b85-01eb-4cb3-9f3f-1878077833ce.png">
+<img width="1260" alt="image" src="https://github.com/aniuzukowska/java_api_reqres/assets/109241600/6609cbba-4592-46f7-a81e-ddc489965eb0">
+<img width="1257" alt="image" src="https://github.com/aniuzukowska/java_api_reqres/assets/109241600/9d0679e2-2591-49d9-bd34-97b5eb7236b2">
+
+

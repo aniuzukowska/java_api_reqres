@@ -55,11 +55,7 @@
 ## Интеграция с Allure TestOPS
 Настроена интеграция Jenkins с Allure TestOPS.
 При первом после интеграции прохождении тестов в Jenkins, в Allure TestOPS были автоматически созданы такие тест-кейсы:
-<img width="1436" alt="image" src="https://user-images.githubusercontent.com/109241600/205479711-64b90846-bb3a-40fe-99bb-6a80c239544b.png">
-
-Можно посмотреть историю выполненных прогонов:
-<img width="1435" alt="image" src="https://user-images.githubusercontent.com/109241600/205479800-0a64d2b1-8392-486f-9ec5-2f082e61d889.png">
-<img width="1435" alt="image" src="https://user-images.githubusercontent.com/109241600/205480162-37354093-dc73-42d7-9a8f-654c6baaef05.png">
+<img width="1433" alt="image" src="https://github.com/aniuzukowska/java_api_reqres/assets/109241600/76ac8b52-8463-4237-a9ab-90081faff91e">
 
 
 

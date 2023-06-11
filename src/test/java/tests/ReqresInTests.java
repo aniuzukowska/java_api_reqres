@@ -110,6 +110,7 @@ public class ReqresInTests {
                         .spec(successfulLoginResponseSpec)
                         .extract().as(LoginSuccessfulResponseLombokModel.class));
         return response.getToken();
+
     }
 
 }

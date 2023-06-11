@@ -95,4 +95,21 @@ public class ReqresInTests {
                 assertThat(response.getError()).isEqualTo("Missing password"));
     }
 
+    //получение токена авторизации по Api для возможного использования в UI тестах
+    String getAuthToken(String login, String password) {
+        LoginBobyLombokModel data = new LoginBobyLombokModel();
+        data.setEmail(login);
+        data.setPassword(password);
+
+        LoginSuccessfulResponseLombokModel response = step("Make request", () ->
+                given(loginRequestSpec)
+                        .body(data)
+                        .when()
+                        .post("/login")
+                        .then()
+                        .spec(successfulLoginResponseSpec)
+                        .extract().as(LoginSuccessfulResponseLombokModel.class));
+        return response.getToken();
+    }
+
 }

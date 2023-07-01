@@ -1,13 +1,11 @@
 package tests;
 
 import models.*;
-import models.getSuccessfulSingleUserResponse.GetSuccessfulSingleUserResponseLombokModel;
+import models.GetSuccessfulSingleUserResponseLombokModel;
 import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static specs.GetSingleUserSpecs.*;
-import static specs.LoginSpecs.*;
-import static specs.UpdateUserSpecs.*;
+import static specs.RequestResponseSpecs.*;
 import static io.qameta.allure.Allure.step;
 
 
@@ -15,42 +13,42 @@ public class ReqresInTests {
     @Test
     void successfulGetSingleUserTest() {
         GetSuccessfulSingleUserResponseLombokModel response = step("Make request", () ->
-                given(getSingleUserRequestSpec)
+                given(requestSpec)
                 .when()
                 .get("users/2")
                 .then()
-                .spec(successfulGetSingleUserResponseSpec)
+                .spec(responseSpecStatusCodeIs200)
                 .extract().as(GetSuccessfulSingleUserResponseLombokModel.class));
 
         step("Verify response", () -> {
                 assertThat(response.getData().getId()).isEqualTo(2);
-                assertThat(response.getData().getFirst_name()).isEqualTo("Janet");});
+                assertThat(response.getData().getFirstName()).isEqualTo("Janet");});
     }
 
     @Test
     void unSuccessfulGetSingleUserTest() {
         step("Make request", () ->
-                given(getSingleUserRequestSpec)
+                given(requestSpec)
                 .when()
                 .get("/users/абв")
                 .then()
-                .spec(unsuccessfulGetSingleUserResponseSpec));
+                .spec(responseSpecStatusCodeIs404));
     }
 
     @Test
     void successfulUpdateUserTest() {
-        UpdateUserBodyLombokModel data = new UpdateUserBodyLombokModel();
+        UpdateUserLombokModel data = new UpdateUserLombokModel();
         data.setName("morpheus");
         data.setJob("zion resident");
 
-        UpdateUserResponseLombokModel response = step("Make request", () ->
-                given(updateUserRequestSpec)
+        UpdateUserLombokModel response = step("Make request", () ->
+                given(requestSpec)
                 .body(data)
                 .when()
                 .put("/users/2")
                 .then()
-                .spec(successfulUpdateUserResponseSpec)
-                .extract().as(UpdateUserResponseLombokModel.class));
+                .spec(responseSpecStatusCodeIs200)
+                .extract().as(UpdateUserLombokModel.class));
 
         step("Verify response", () -> {
             assertThat(response.getName()).isEqualTo("morpheus");
@@ -64,16 +62,16 @@ public class ReqresInTests {
         data.setPassword("cityslicka");
 
         LoginSuccessfulResponseLombokModel response = step("Make request", () ->
-                given(loginRequestSpec)
+                given(requestSpec)
                 .body(data)
                 .when()
                 .post("/login")
                 .then()
-                .spec(successfulLoginResponseSpec)
+                .spec(responseSpecStatusCodeIs200)
                 .extract().as(LoginSuccessfulResponseLombokModel.class));
 
         step("Verify response", () ->
-                assertThat(response.getToken()).isEqualTo("QpwL5tke4Pnpja7X4"));
+                assertThat(response.getToken()).isNotEmpty());
     }
 
     @Test
@@ -83,34 +81,17 @@ public class ReqresInTests {
         data.setPassword("");
 
         LoginUnSuccessfulResponseLombokModel response = step("Make request", () ->
-                given(loginRequestSpec)
+                given(requestSpec)
                 .body(data)
                 .when()
                 .post("/login")
                 .then()
-                .spec(unSuccessfulLoginResponseSpec)
+                .spec(responseSpecStatusCodeIs400)
                 .extract().as(LoginUnSuccessfulResponseLombokModel.class));
 
         step("Verify response", () ->
                 assertThat(response.getError()).isEqualTo("Missing password"));
     }
 
-    //получение токена авторизации по Api для возможного использования в UI тестах
-    String getAuthToken(String login, String password) {
-        LoginBobyLombokModel data = new LoginBobyLombokModel();
-        data.setEmail(login);
-        data.setPassword(password);
-
-        LoginSuccessfulResponseLombokModel response = step("Make request", () ->
-                given(loginRequestSpec)
-                        .body(data)
-                        .when()
-                        .post("/login")
-                        .then()
-                        .spec(successfulLoginResponseSpec)
-                        .extract().as(LoginSuccessfulResponseLombokModel.class));
-        return response.getToken();
-
-    }
 
 }

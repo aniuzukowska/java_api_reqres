@@ -53,7 +53,7 @@
 <a name="TestOPS">
 
 ## Интеграция с Allure TestOPS
-Настроена интеграция Jenkins с Allure TestOPS.
+Настроена интеграция Jenkins с <a href="https://allure.autotests.cloud/launch/25078/tree?search=W3siaWQiOiJzdGF0dXMiLCJ0eXBlIjoidGVzdFN0YXR1c0FycmF5IiwidmFsdWUiOlsicGFzc2VkIl19XQ%3D%3D&treeId=0" target="_blank">Allure TestOPS</a>
 При первом после интеграции прохождении тестов в Jenkins, в Allure TestOPS были автоматически созданы такие тест-кейсы:
 <img width="1433" alt="image" src="https://github.com/aniuzukowska/java_api_reqres/assets/109241600/76ac8b52-8463-4237-a9ab-90081faff91e">
 
